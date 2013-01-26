@@ -1,0 +1,17 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green43\blue54;\red131\green148\blue150;\red220\green50\blue47;\red220\green50\blue47;\red88\green110\blue117;\red88\green110\blue117;\red108\green113\blue196;\red108\green113\blue196;\red220\green50\blue47;\red38\green139\blue210;\red147\green161\blue161;\red203\green75\blue22;\red203\green75\blue22;\red133\green153\blue00;\red147\green161\blue161;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard \cbpat1{{\cf2{urls}}{\cf11{.}}{\cf2{each}} {\cf12{do}} {\cf2{}}{\cf11{|}}{\cf2{url}}{\cf11{|}}}\par\pard
+\cbpat1{{\cf2{  Thread}}{\cf11{.}}{\cf2{new}} {\cf12{do}}}\par\pard
+\cbpat1{{\cf2{    socket}} {\cf11{=}} {\cf2{TCPSocket}}{\cf11{.}}{\cf2{}}{\cf15{new}}{\cf2{}}{\cf11{(}}{\cf2{url}}{\cf11{,}} {\cf2{}}{\cf4{{8}{0}}}{\cf2{)}\par\pard
+\cbpat1{    print}} {\cf3{"Starting to write}} {\cf7{#\{url\}}}{\cf3{\\n"}}{\cf2{}\par\pard
+\cbpat1{    socket}}{\cf11{.}}{\cf2{}}{\cf15{write}}{\cf2{}}{\cf11{(}}{\cf2{}}{\cf3{"GET / HTTP/{1}.{1}\\r\\nHost: www.}}{\cf7{#\{url\}}}{\cf3{\\r\\n\\r\\n"}}{\cf2{)}\par\pard
+\cbpat1{    socket}}{\cf11{.}}{\cf2{close_write}\par\pard
+\cbpat1{}\par\pard
+\cbpat1{    print}} {\cf3{"Starting to read}} {\cf7{#\{url\}}}{\cf3{\\n"}}{\cf2{}\par\pard
+\cbpat1{    socket}}{\cf11{.}}{\cf2{}}{\cf15{read}}{\cf2{}}{\cf11{(}}{\cf2{}}{\cf4{{4}{0}{9}{6}}}{\cf2{)}\par\pard
+\cbpat1{    socket}}{\cf11{.}}{\cf2{close}}}\par\pard
+\cbpat1{  {\cf12{end}}}\par\pard
+\cbpat1{{\cf2{}}{\cf12{end}}}\par\pard
+\cbpat1{{\cf2{}\par\pard
+\cbpat1{Thread}}{\cf11{.}}{\cf2{list}}{\cf11{.}}{\cf2{each}} {\cf7{\{ |t| t.join unless t == Thread.current \}}}{\cf2{}}}\par\pard
+\cbpat1{}}
