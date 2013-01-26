@@ -1,0 +1,19 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green43\blue54;\red131\green148\blue150;\red220\green50\blue47;\red220\green50\blue47;\red88\green110\blue117;\red88\green110\blue117;\red108\green113\blue196;\red108\green113\blue196;\red220\green50\blue47;\red38\green139\blue210;\red147\green161\blue161;\red203\green75\blue22;\red203\green75\blue22;\red133\green153\blue00;\red147\green161\blue161;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard \cbpat1{{\cf2{}}{\cf5{#Shared variables}}}\par\pard
+\cbpat1{{\cf2{x}} {\cf11{=}} {\cf2{}}{\cf4{{1}}}}\par\pard
+\cbpat1{{\cf2{}}}\par\pard
+\cbpat1{{\cf4{{4}}}{\cf2{}}{\cf11{.}}{\cf2{times}} {\cf12{do}}}\par\pard
+\cbpat1{{\cf2{  Thread}}{\cf11{.}}{\cf2{new}} {\cf12{do}}}\par\pard
+\cbpat1{{\cf2{    x}} {\cf11{+=}} {\cf2{}}{\cf4{{1}}}}\par\pard
+\cbpat1{{\cf2{    print}} {\cf3{"And the value of x is}} {\cf7{#\{x\}}}{\cf3{\\n"}}{\cf2{}}}\par\pard
+\cbpat1{  {\cf12{end}}}\par\pard
+\cbpat1{{\cf2{}}{\cf12{end}}}\par\pard
+\cbpat1{{\cf2{}\par\pard
+\cbpat1{Thread}}{\cf11{.}}{\cf2{list}}{\cf11{.}}{\cf2{each}} {\cf7{\{ |t| t.join unless t == Thread.current \}}}}\par\pard
+\cbpat1{{\cf2{}}}\par\pard
+\cbpat1{{\cf5{# And the value of x is {4}}}}\par\pard
+\cbpat1{{\cf2{}}{\cf5{# And the value of x is {2}}}}\par\pard
+\cbpat1{{\cf2{}}{\cf5{# And the value of x is {3}}}}\par\pard
+\cbpat1{{\cf2{}}{\cf5{# And the value of x is {5}}}{\cf2{}}}\par\pard
+\cbpat1{}}

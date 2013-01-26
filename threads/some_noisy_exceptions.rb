@@ -1,19 +1,19 @@
+# some_noisy_exceptions.rb
+
 10.times do
   Thread.new do
-    kaboom = rand(3)
-    print "#{kaboom}\n"
-    sleep 2
-    if kaboom == 1
-      print "uh-oh, we're in trouble"
-      raise "Silly lyrics"
-    elsif kaboom == 2
+    case rand(3)
+    when 1
+      print "uh-oh\n"
+      raise "Oh Noez"
+    when 2
       Thread.current.abort_on_exception = true
-      print "Ask yourself, are you feeling lucky, punk?"
-      raise "Overused movie quote"
+      raise "Oops"
     end
   end
 end
 
-sleep 30
+sleep 5 and puts "nothing to see here!"
 
-puts "nothing to see here!"
+# uh-oh
+# ... <main>': Oops (RuntimeError)'

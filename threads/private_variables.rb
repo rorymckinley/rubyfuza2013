@@ -1,3 +1,4 @@
+# Private variables
 x = 1
 
 4.times do
