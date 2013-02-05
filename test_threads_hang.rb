@@ -5,7 +5,7 @@ t = Time.now
 urls = ["hetzner.co.za", "cnn.com", "google.co.za"]
 
 urls.each do |url|
-  fork do
+  Thread.new do
     socket = TCPSocket.new(url, 80)
     print "Starting to write #{url}\n"
     socket.write("GET / HTTP/1.1\r\nHost: www.#{url}\r\n\r\n")
@@ -17,6 +17,6 @@ urls.each do |url|
   end
 end
 
-Process.waitall
+Thread.list.each { |t| t.join }
 
 puts Time.now - t

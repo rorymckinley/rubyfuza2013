@@ -1,0 +1,20 @@
+{\rtf1\ansi\uc0 \deff1{\fonttbl{\f1\fmodern\fprq1\fcharset0 Courier New;}}{\colortbl;\red00\green43\blue54;\red131\green148\blue150;\red220\green50\blue47;\red220\green50\blue47;\red88\green110\blue117;\red88\green110\blue117;\red108\green113\blue196;\red108\green113\blue196;\red220\green50\blue47;\red38\green139\blue210;\red147\green161\blue161;\red203\green75\blue22;\red203\green75\blue22;\red133\green153\blue00;\red147\green161\blue161;}
+\paperw11905\paperh16837\margl1134\margr1134\margt1134\margb1134\sectd\plain\f1\fs20
+\pard \cbpat1{{\cf2{s_pool}} {\cf11{=}} {\cf2{urls}}{\cf11{.}}{\cf2{}}{\cf15{inject}}{\cf2{}}{\cf11{(}}{\cf2{}}{\cf7{\{\}}}{\cf2{)}} {\cf12{do}} {\cf2{}}{\cf11{|}}{\cf2{pool}}{\cf11{,}} {\cf2{url}}{\cf11{|}}}\par\pard
+\cbpat1{{\cf2{  fiber}} {\cf11{=}} {\cf2{Fiber}}{\cf11{.}}{\cf2{new}} {\cf12{do}} {\cf2{}}{\cf11{|}}{\cf2{socket_w}}{\cf11{|}}}\par\pard
+\cbpat1{{\cf2{    socket_w}}{\cf11{.}}{\cf2{}}{\cf15{write}}{\cf2{}}{\cf11{(}}{\cf2{}}{\cf3{"GET / HTTP/{1}.{1}\\r\\nHost: www.}}{\cf7{#\{url\}}}{\cf3{\\r\\n\\r\\n"}}{\cf2{)}\par\pard
+\cbpat1{    socket_w}}{\cf11{.}}{\cf2{close_write}\par\pard
+\cbpat1{    socket_r}}{\cf11{=}} {\cf2{Fiber}}{\cf11{.}}{\cf2{}}{\cf12{yield}}}\par\pard
+\cbpat1{{\cf2{}\par\pard
+\cbpat1{    socket_r}}{\cf11{.}}{\cf2{}}{\cf15{read}}{\cf2{}}{\cf11{(}}{\cf2{}}{\cf4{{4}{0}{9}{6}}}{\cf2{)}\par\pard
+\cbpat1{    socket_r}}{\cf11{.}}{\cf2{close}}}\par\pard
+\cbpat1{  {\cf12{end}}}\par\pard
+\cbpat1{{\cf2{  pool}}{\cf11{.}}{\cf2{merge TCPSocket}}{\cf11{.}}{\cf2{}}{\cf15{new}}{\cf2{}}{\cf11{(}}{\cf2{url}}{\cf11{,}} {\cf2{}}{\cf4{{8}{0}}}{\cf2{)}} {\cf11{=>}} {\cf2{fiber}}}\par\pard
+\cbpat1{{\cf12{end}}}\par\pard
+\cbpat1{{\cf2{}}}\par\pard
+\cbpat1{{\cf12{while}} {\cf2{s_pool}}{\cf11{.}}{\cf2{values}}{\cf11{.}}{\cf2{any}}{\cf11{?}} {\cf2{}}{\cf7{\{ |fiber| fiber.alive? \}}} {\cf2{}}{\cf12{do}}}\par\pard
+\cbpat1{{\cf2{  read}}{\cf11{,}} {\cf2{write}} {\cf11{=}} {\cf2{IO}}{\cf11{.}}{\cf2{}}{\cf15{select}}{\cf2{}}{\cf11{(}}{\cf2{s_pool}}{\cf11{.}}{\cf2{keys}}{\cf11{,}} {\cf2{s_pool}}{\cf11{.}}{\cf2{keys)}\par\pard
+\cbpat1{  write}}{\cf11{.}}{\cf2{each}} {\cf7{\{ |s| s_pool[s].resume(s) \}}}}\par\pard
+\cbpat1{{\cf2{  read}}{\cf11{.}}{\cf2{each}} {\cf7{\{ |s| s_pool[s].resume(s) \}}}}\par\pard
+\cbpat1{{\cf2{}}{\cf12{end}}{\cf2{}}}\par\pard
+\cbpat1{}}

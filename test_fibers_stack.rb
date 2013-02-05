@@ -13,7 +13,8 @@ s_pool = urls.inject({}) do |pool, url|
     socket_r= Fiber.yield
 
     puts "Starting to read #{url}"
-    socket_r.read(4096)
+    storage = socket_r.read(20000)
+    p storage.size
     socket_r.close
   end
 
